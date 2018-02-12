@@ -1,0 +1,16 @@
+<h1>Attractions</h1>
+<% if can? :create, Attraction %>
+	<%= link_to 'New Attraction', new_attraction_path %>
+<% end %>
+<ul>
+<% @attractions.each do |attra| %>
+	<li><%= attra.name %></li>
+	<li>
+	<% if can? :edit, Attraction %>
+		<%= link_to "Show #{attra.name}", attraction_path(attra) %>
+	<% else %>
+		<%= link_to "Go on #{attra.name}", attraction_path(attra) %>
+	<% end %>
+	</li>
+<%end%>
+</ul>

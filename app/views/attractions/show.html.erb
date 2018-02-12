@@ -1,0 +1,5 @@
+<%= render @attraction %>
+<%= button_to 'Go on this ride', [:ride, @attraction], { params: {attraction_id: @attraction.id}}%>
+<% if can? :edit, @attraction %>
+	<%= link_to "Edit Attraction", edit_attraction_path(@attraction) %>	
+<%end%>
